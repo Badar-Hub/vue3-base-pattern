@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <q-layout view="hHh LpR lFf">
+    <div>
+      <router-view />
+    </div>
+  </q-layout>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "App",
+});
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@font-face {
+  font-family: "Poppins-rg";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    font-family: "Poppins-rg";
+  }
+  font-family: "Poppins-rg" !important;
+}
+.screen-center {
+  max-width: 1200px;
+  margin: auto;
+}
+.brdr {
+  border: 1px solid #e6e7e9 !important;
+  &-br {
+    border: 1px solid #e6e7e9 !important;
+    border-radius: 8px !important;
+  }
+  &-dashed {
+    border: 1px dashed #9e9e9e !important;
+    border-radius: 1% !important;
+  }
 }
 </style>
