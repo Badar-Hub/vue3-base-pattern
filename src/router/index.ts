@@ -12,16 +12,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "Dashboard",
     component: DashboardLayout,
-    children: [
-      {
-        path: "/history",
-        name: "History",
-        component: () =>
-          import(
-            /* webpackChunkName: "History" */ "@/modules/history/History.vue"
-          ),
-      },
-    ],
   },
 ];
 

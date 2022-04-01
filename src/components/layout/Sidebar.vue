@@ -17,7 +17,7 @@
             color="white"
             name="rhc-random-logo"
           />
-          <p class="text-weight-bold text-body2 q-ma-xs text-white">FHT</p>
+          <p class="text-weight-bold text-body2 q-ma-xs text-white">Name</p>
         </q-item-section>
       </q-item>
       <div>
