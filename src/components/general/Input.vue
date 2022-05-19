@@ -1,12 +1,8 @@
 <template>
-  <p
-    v-if="heading"
-    class="text-black text-weight-bold text-medium no-margin q-pb-sm q-px-sm"
-    :class="headingColor"
-  >
+  <p v-if="heading" :class="headingColor">
     {{ heading }}
   </p>
-  <q-input class="q-px-sm" outlined v-bind="$attrs">
+  <q-input outlined v-bind="$attrs" class="q-mb-lg">
     <template #prepend>
       <slot name="prepend"></slot>
     </template>

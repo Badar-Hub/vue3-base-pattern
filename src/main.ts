@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import { createPinia } from "pinia";
 import { Quasar } from "quasar";
 import quasarUserOptions from "./quasar-user-options";
 
@@ -16,8 +17,9 @@ import Button from "@/components/general/Button.vue";
 import Table from "@/components/general/Table/Table.vue";
 
 createApp(App)
-  .use(Quasar, quasarUserOptions)
   .use(router)
+  .use(createPinia())
+  .use(Quasar, quasarUserOptions)
   .component("Icon", Icon)
   .component("Card", Card)
   .component("Modal", Modal)

@@ -1,5 +1,5 @@
 {
-  "name": "vue_base_pattern",
+  "name": "saas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,9 +11,10 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.26.1",
     "core-js": "^3.6.5",
+    "pinia": "^2.0.14",
     "quasar": "^2.0.0",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",

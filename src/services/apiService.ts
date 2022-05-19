@@ -1,12 +1,13 @@
 import _axios from "axios";
 import router from "../router";
 import { Notify } from "quasar";
+
 export default class ApiService {
   static axios = _axios.create({
     baseURL: process.env.VUE_APP_SERVER_ADDRESS
       ? process.env.VUE_APP_SERVER_ADDRESS
       : "http://localhost:5000/",
-    timeout: 10000,
+    timeout: 30000,
   });
 
   static axiosInterceptor = ApiService.addInterceptor();
@@ -64,23 +65,24 @@ export default class ApiService {
   }
 
   private static handleError(error: any) {
+    console.log(error.response);
     if (error.response) {
       if (error.response.status == 422) {
-        let template = "<span>";
-        const err = error.response.data.detail;
-        if (err.length) {
-          err.forEach((x: string, i: number) => {
-            template += `<li> ${x} </li>
-            ${i == err.length - 1 ? "" : "<br />"} `;
-          });
-        } else {
-          template += "Please resolve some validation error(s)";
-        }
-        template += "</span>";
-
+        // let template = "<span>";
+        // const err = error.response.data.detail;
+        // if (err.length) {
+        //   err.forEach((x: string, i: number) => {
+        //     template += `<li> ${x} </li>
+        //     ${i == err.length - 1 ? "" : "<br />"} `;
+        //   });
+        // } else {
+        //   template += "Please resolve some validation error(s)";
+        // }
+        // template += "</span>";
         Notify.create({
           html: true,
-          message: template,
+          // message: template,
+          message: error.response.data.detail,
           timeout: 50000,
           color: "red-9",
           actions: [
