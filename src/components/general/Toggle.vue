@@ -2,35 +2,26 @@
   <q-toggle v-model="inputValue" v-bind="$attrs" :color="color" />
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
-export default defineComponent({
-  props: {
-    color: {
-      type: String,
-      default: "green",
-    },
-    modelValue: {
-      type: Number || Boolean,
-    },
+<script lang="ts" setup>
+import { computed } from "vue";
+const props = defineProps<{
+  color: string;
+  modelValue: number | boolean;
+}>();
+const emit = defineEmits<{
+  (e: "update:modelValue", val: boolean | number): void;
+}>();
+
+const inputValue = computed({
+  get() {
+    if (props.modelValue) {
+      return true;
+    } else {
+      return false;
+    }
   },
-  emits: ["update:modelValue"],
-  setup(props, context) {
-    const inputValue = computed({
-      get() {
-        if (props.modelValue) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      set(val) {
-        context.emit("update:modelValue", val);
-      },
-    });
-    return {
-      inputValue,
-    };
+  set(val: boolean) {
+    emit("update:modelValue", val);
   },
 });
 </script>
