@@ -1,9 +1,9 @@
 import type {
-  StoreState,
+  PiniaCustomStateProperties,
   StoreActions,
   StoreGeneric,
   StoreGetters,
-  PiniaCustomStateProperties,
+  StoreState,
 } from "pinia";
 import type { ToRefs } from "vue";
 import { isReactive, isRef, toRaw, toRef } from "vue";
