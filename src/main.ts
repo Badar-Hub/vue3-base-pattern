@@ -1,9 +1,11 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { createPinia } from "pinia";
 import { Quasar } from "quasar";
 import quasarUserOptions from "./quasar-user-options";
+
+import { createPinia } from "pinia";
+import piniaPersist from "pinia-plugin-persist";
 
 //Global Coimponent Registration
 import Icon from "@/components/general/Icon.vue";
@@ -18,8 +20,8 @@ import Table from "@/components/general/Table/Table.vue";
 
 createApp(App)
   .use(router)
-  .use(createPinia())
   .use(Quasar, quasarUserOptions)
+  .use(createPinia().use(piniaPersist))
   .component("Icon", Icon)
   .component("Card", Card)
   .component("Modal", Modal)
